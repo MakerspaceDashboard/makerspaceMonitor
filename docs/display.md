@@ -1,9 +1,6 @@
 ## Sariah's idea for an interactive GUI in Python
-Hi y'all. In my club we have a driver station written in Python that utilizes a library called ImGui. I have seen it be sufficient for my needs then, so if there are no better suited ideas, I've started a mockup of how a display feature could be utilized using this. You will need a few dependencies (which I should hopefully fit in a requirements file) and you should be able to download each one using "pip install " (on Windows) at least for now. In the future we can make that process more streamlined. 
-Once the dependencies are obtained, you can run the display.py file to see an example window that we can expand on as we go about working on this project further!
-# Documentation
-https://pyimgui.readthedocs.io/en/latest/guide/first-steps.html
-Stole the demo from this link below:
-https://github.com/pyimgui/pyimgui/blob/master/doc/examples/integrations_pygame.py#L5
+Hi y'all. Because we need an interactive GUI in Python that runs on Linux, I have started by creating a small file that uses GTK that should run smoothly on Ubuntu (or other distros hopefully). To get set up for now (in the future we should have a shell script that should install all dependencies in one go) the two most important packages are libgtk-4-1 and libgtk-4-dev. On Ubuntu, you should have Python installed by default but if not you'll need that too obviously. If you aren't familiar, the command you will need to run is "sudo apt-get" ___. Then, you can run "python3 main.py" in your terminal and see a box that will be the start of our GUI!
 
-If anyone else is familar, just hmu in the discord because I have no reasoning on why to use pygame other than that's what I've used before so I am very open to change at this point in time. 
+# Documentation
+https://www.gtk.org/docs/installations/linux/
+https://github.com/Taiko2k/GTK4PythonTutorial 

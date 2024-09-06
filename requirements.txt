@@ -1,4 +1,2 @@
-PyOpenGL
-pygame
-imgui[glfw]
-psutil
+libgtk-4-1
+libgtk-4-dev
