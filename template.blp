@@ -1,0 +1,45 @@
+using Gtk 4.0;
+
+Box welcome {
+  orientation: vertical;
+  valign: center;
+  halign: center;
+
+  Image {
+    name: 'logo';
+    icon-name: 're.sonny.Workbench';
+    pixel-size: 196;
+    margin-bottom: 30;
+
+    styles [
+      "icon-dropshadow",
+    ]
+  }
+
+  Label {
+    label: _('Welcome to Bolz Makerspace!');
+    margin-bottom: 30;
+
+    styles [
+      "title-1",
+    ]
+  }
+
+  Box subtitle {
+    orientation: vertical;
+    halign: center;
+    margin-bottom: 30;
+
+    Label {
+      label: 'Insert date here with the power of python';
+      justify: center;
+    }
+  }
+
+  Box startup_buttons {
+    orientation: vertical;
+    halign: center;
+    margin-top: 20;
+    margin-bottom: 20;
+  }
+}

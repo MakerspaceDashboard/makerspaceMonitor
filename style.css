@@ -1,13 +1,36 @@
 /* Title */
 .title {
-    font-size: 30px;
+    font-size: 48px;
     font-weight: bold;
     margin-bottom: 10px;
+    background-color: #ba0c2f;
 }
 
 .date {
     font-size: 24px;
-    font-weight: normal;
+    font-weight: bolder;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.check {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 10px; 
+    background-color: rgb(96, 96, 96);
+}
+
+.mainbox {
+    background-color: #a7b1b7;
+}
+
+.arrows {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-top: 20px;
+    background-color: #ba0c2f;
+    border-radius: 20px; 
 }

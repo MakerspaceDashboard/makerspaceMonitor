@@ -15,10 +15,11 @@ class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     # Main window structuring
-        self.set_default_size(600, 250)
+        self.set_default_size(768, 480)
         self.set_title("Makerspace Dashboard")
 
         self.box_main = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0) # Holds everything else
+        self.box_main.set_css_classes(['mainbox'])
         self.box_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.box_datetime = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.box_date = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -26,11 +27,29 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_in = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.box_out = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 
+        self.box_back = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        self.button_back = Gtk.Button(label="<-")
+        self.button_back.connect('clicked', self.go_back)
+        self.box_back.set_css_classes(['arrows'])
+        self.box_back.set_halign(Gtk.Align.START)
+        self.box_back.append(self.button_back)
+
+        self.box_login = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.box_user = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+        self.box_password = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+        self.box_login.set_halign(Gtk.Align.CENTER)
+        self.box_login.append(self.box_user)
+        self.box_login.append(self.box_password)
+
+
+        self.box_main.set_css_classes(['mainbox'])
+
         self.set_child(self.box_main)
 
         self.box_main.append(self.box_title)
         self.box_main.set_halign(Gtk.Align.CENTER)
         self.box_main.append(self.box_datetime)
+        self.box_datetime.set_halign(Gtk.Align.CENTER)
         self.box_main.append(self.box_in)
         self.box_in.set_halign(Gtk.Align.CENTER)
         self.box_main.append(self.box_out)
@@ -61,27 +80,51 @@ class MainWindow(Gtk.ApplicationWindow):
         self.time_label.set_css_classes(['date'])
         self.box_time.append(self.time_label)
 
-        # Initialize time display
         self.update_time()
 
 
     # Buttons for check in and out
         self.button_in = Gtk.Button(label="Check In")
         self.button_in.connect('clicked', self.check_in)
+        self.box_in.set_css_classes(['check'])
         self.box_in.append(self.button_in)
 
         self.button_out = Gtk.Button(label="Check Out")
         self.button_out.connect('clicked', self.check_out)
+        self.box_out.set_css_classes(['check'])
         self.box_out.append(self.button_out)
+
+    # User and password boxes for next page
+        user_label = Gtk.Label(label="Username:")
+        self.username = Gtk.Entry()
+        self.box_user.append(user_label)
+        self.box_user.append(self.username)
+
+        pass_label = Gtk.Label(label="Password:")
+        self.password = Gtk.Entry()
+        self.password.set_visibility(False)
+        self.box_password.append(pass_label)
+        self.box_password.append(self.password)
+
+        self.box_login.append(self.box_back)
 
     # Activate check in window on click
     def check_in(self, button):
         print("Check in stuff here")
+        self.set_child(self.box_login)
+
+    def go_back(self, button): 
+        print("Back to main")
+        self.set_child(self.box_main)
+
+
+
 
     # Activate check out window on click
     def check_out(self, button):
         print("Check out stuff here")
 
+    # Update date label
     def update_date(self):
         current_date = datetime.datetime.now().strftime("%B %d, %Y")
         self.date_label.set_label(current_date)
