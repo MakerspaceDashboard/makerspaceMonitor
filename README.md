@@ -12,3 +12,30 @@
 
 ## Planning/distribution
 
+# Main Menu
+- [x] Displays Time
+- [x] Check in box
+- [x] Check out box
+- [ ] Discord QR Code
+- [ ] Hours lab is open
+- [ ] Other displays
+- [ ] Use right side as list of staff currently in building? 
+
+# Check in page
+- [x] Username
+- [x] Password
+- [ ] Login Button
+- [ ] Back Button
+
+# Check out page
+- [ ] Username
+- [ ] Password
+- [ ] Login Button
+- [ ] Back Button
+
+# Certifications
+- [ ] Page after login to upload certs
+- [ ] Add certs
+- [ ] Remove certs
+- [ ] Back button
+- [ ] Submit button

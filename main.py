@@ -28,6 +28,18 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_in = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.box_out = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 
+    # Staff box
+        self.box_present = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.box_present.set_css_classes(['staff'])
+        self.box_present.set_halign(Gtk.Align.END)
+        self.staff_present = Gtk.ListBox()
+        self.staff_list_label = Gtk.Label(label=" Staff Present ")
+        self.staff_present.set_css_classes(['staff'])
+        self.staff_present.append(self.staff_list_label)
+        self.box_present.append(self.staff_present)
+
+
+
     # Moving pages
         self.box_back = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.button_back = Gtk.Button(label="<-")
@@ -51,6 +63,7 @@ class MainWindow(Gtk.ApplicationWindow):
     # Main title
         self.box_main.append(self.box_title)
         self.box_main.set_halign(Gtk.Align.CENTER)
+        self.box_main.append(self.box_present)
         self.box_main.append(self.box_datetime)
         self.box_datetime.set_halign(Gtk.Align.CENTER)
         self.box_main.append(self.box_in)
@@ -59,7 +72,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_out.set_halign(Gtk.Align.CENTER)
  
         title_label = Gtk.Label(label="Welcome to Bolz Makerspace!")
-        title_label.set_css_classes(['title'])
+        title_label.set_css_classes(['welcome'])
         self.box_title.append(title_label)
 
         self.box_datetime.append(self.box_date)
@@ -135,6 +148,7 @@ class MainWindow(Gtk.ApplicationWindow):
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
         self.time_label.set_label(current_time)
         return True
+    
 
 
 

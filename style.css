@@ -1,8 +1,7 @@
 /* Title */
-.title {
+.welcome {
     font-size: 48px;
     font-weight: bold;
-    margin-bottom: 10px;
     background-color: #ba0c2f;
 }
 
@@ -19,12 +18,19 @@
     font-weight: normal;
     margin-bottom: 5px;
     margin-top: 5px;
-    border-radius: 10px; 
-    background-color: rgb(96, 96, 96);
+    border-radius: 10px;
+    background-color:#a7b1b7;
 }
 
 .mainbox {
-    background-color: #a7b1b7;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+
+.staff {
+    font-size: 18px;
+    background-color: #7a7a7a;
+    margin-bottom: 5px;
 }
 
 .arrows {
