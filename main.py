@@ -18,6 +18,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.set_default_size(768, 480)
         self.set_title("Makerspace Dashboard")
 
+    # Home screen
         self.box_main = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0) # Holds everything else
         self.box_main.set_css_classes(['mainbox'])
         self.box_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
@@ -27,6 +28,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_in = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.box_out = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
 
+    # Moving pages
         self.box_back = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.button_back = Gtk.Button(label="<-")
         self.button_back.connect('clicked', self.go_back)
@@ -34,6 +36,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_back.set_halign(Gtk.Align.START)
         self.box_back.append(self.button_back)
 
+    # Check in page
         self.box_login = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.box_user = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         self.box_password = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -41,11 +44,11 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_login.append(self.box_user)
         self.box_login.append(self.box_password)
 
-
+    # Initialize
         self.box_main.set_css_classes(['mainbox'])
-
         self.set_child(self.box_main)
 
+    # Main title
         self.box_main.append(self.box_title)
         self.box_main.set_halign(Gtk.Align.CENTER)
         self.box_main.append(self.box_datetime)
@@ -54,8 +57,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_in.set_halign(Gtk.Align.CENTER)
         self.box_main.append(self.box_out)
         self.box_out.set_halign(Gtk.Align.CENTER)
-
-    # Main title 
+ 
         title_label = Gtk.Label(label="Welcome to Bolz Makerspace!")
         title_label.set_css_classes(['title'])
         self.box_title.append(title_label)
@@ -117,18 +119,17 @@ class MainWindow(Gtk.ApplicationWindow):
         print("Back to main")
         self.set_child(self.box_main)
 
-
-
-
     # Activate check out window on click
     def check_out(self, button):
         print("Check out stuff here")
+        # Work needed here
 
     # Update date label
     def update_date(self):
         current_date = datetime.datetime.now().strftime("%B %d, %Y")
         self.date_label.set_label(current_date)
         return True
+    
     # Function to update the time label
     def update_time(self):
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
