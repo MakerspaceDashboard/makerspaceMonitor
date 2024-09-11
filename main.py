@@ -27,6 +27,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_time = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         self.box_in = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.box_out = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        self.box_qr = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
     # Staff box
         self.box_present = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
@@ -37,7 +38,6 @@ class MainWindow(Gtk.ApplicationWindow):
         self.staff_present.set_css_classes(['staff'])
         self.staff_present.append(self.staff_list_label)
         self.box_present.append(self.staff_present)
-
 
 
     # Moving pages
@@ -70,6 +70,8 @@ class MainWindow(Gtk.ApplicationWindow):
         self.box_in.set_halign(Gtk.Align.CENTER)
         self.box_main.append(self.box_out)
         self.box_out.set_halign(Gtk.Align.CENTER)
+        self.box_main.append(self.box_qr)
+        self.box_qr.set_halign(Gtk.Align.START)
  
         title_label = Gtk.Label(label="Welcome to Bolz Makerspace!")
         title_label.set_css_classes(['welcome'])
@@ -77,6 +79,16 @@ class MainWindow(Gtk.ApplicationWindow):
 
         self.box_datetime.append(self.box_date)
         self.box_datetime.append(self.box_time)
+
+    # QR code
+        qrlabel = Gtk.Label(label="Join the Discord!")
+        qrlabel.set_css_classes(['qr'])
+
+        qrcode = Gtk.Image.new_from_file('eleclub.png')
+        qrcode.set_pixel_size(200)
+
+        self.box_qr.append(qrlabel)
+        self.box_qr.append(qrcode)
 
     # Date
         current_date = datetime.datetime.now()
