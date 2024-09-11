@@ -16,7 +16,7 @@
 - [x] Displays Time
 - [x] Check in box
 - [x] Check out box
-- [ ] Discord QR Code
+- [x] Discord QR Code
 - [ ] Hours lab is open
 - [ ] Other displays
 - [ ] Use right side as list of staff currently in building? 
