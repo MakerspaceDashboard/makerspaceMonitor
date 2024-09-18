@@ -14,6 +14,7 @@ Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css_provide
 class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
     # Main window structuring
         self.set_default_size(768, 480)
         self.set_title("Makerspace Dashboard")
@@ -38,7 +39,6 @@ class MainWindow(Gtk.ApplicationWindow):
         self.staff_present.set_css_classes(['staff'])
         self.staff_present.append(self.staff_list_label)
         self.box_present.append(self.staff_present)
-
 
     # Moving pages
         self.box_back = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
@@ -83,10 +83,8 @@ class MainWindow(Gtk.ApplicationWindow):
     # QR code
         qrlabel = Gtk.Label(label="Join the Discord!")
         qrlabel.set_css_classes(['qr'])
-
         qrcode = Gtk.Image.new_from_file('eleclub.png')
         qrcode.set_pixel_size(200)
-
         self.box_qr.append(qrlabel)
         self.box_qr.append(qrcode)
 
